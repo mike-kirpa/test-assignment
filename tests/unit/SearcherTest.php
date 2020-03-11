@@ -5,7 +5,7 @@ namespace tests;
 use app\components;
 
 /**
- * SearcherTest contains test casess for searcher component
+ * SearcherTest contains test cases for searcher component
  * 
  * IMPORTANT NOTE:
  * All test cases down below must be implemented
@@ -27,5 +27,6 @@ class SearcherTest extends \Codeception\Test\Unit
         /**
          * @todo IMPLEMENT THIS
          */
+
     }
 }

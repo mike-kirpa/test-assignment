@@ -15,7 +15,7 @@ class GitlabUsers extends Api\Users
      * @param int $id
      * @return mixed
      */
-    public function usersProjects($id)
+    public function usersProjects($id, array $parameters = [])
     {
         return $this->get('users/' . $this->encodePath($id) . '/projects');
     }

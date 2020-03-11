@@ -5,7 +5,7 @@ namespace tests;
 use app\models;
 
 /**
- * GitlabRepoTest contains test casess for gitlab repo model
+ * GitlabRepoTest contains test cases for gitlab repo model
  * 
  * IMPORTANT NOTE:
  * All test cases down below must be implemented

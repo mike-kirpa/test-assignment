@@ -5,7 +5,7 @@ namespace tests;
 use app\models;
 
 /**
- * UserTest contains test casess for user model
+ * UserTest contains test cases for user model
  * 
  * IMPORTANT NOTE:
  * All test cases down below must be implemented

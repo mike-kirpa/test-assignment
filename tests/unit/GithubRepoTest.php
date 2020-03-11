@@ -5,7 +5,7 @@ namespace tests;
 use app\models;
 
 /**
- * GithubRepoTest contains test casess for github repo model
+ * GithubRepoTest contains test cases for github repo model
  * 
  * IMPORTANT NOTE:
  * All test cases down below must be implemented

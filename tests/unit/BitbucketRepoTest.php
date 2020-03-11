@@ -5,7 +5,7 @@ namespace tests;
 use app\models;
 
 /**
- * BitbucketRepoTest contains test casess for bitbucket repo model
+ * BitbucketRepoTest contains test cases for bitbucket repo model
  * 
  * IMPORTANT NOTE:
  * All test cases down below must be implemented
