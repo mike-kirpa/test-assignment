@@ -15,6 +15,7 @@ use app\models;
  */
 class Bitbucket extends base\Component implements interfaces\IPlatform
 {
+
     /**
      * Bitbucket platform ctor
      * 
@@ -36,10 +37,10 @@ class Bitbucket extends base\Component implements interfaces\IPlatform
          */
         $response = $this->api->get($userName);
         $response = json_decode($response->getContent(), true);
-        if (array_key_exists('username', $response)) {
+        if (array_key_exists('nickname', $response)) {
             return new models\User(
-                $response['username'],
-                $response['username'],
+                $response['nickname'],
+                $response['nickname'],
                 'bitbucket'
             );
         }

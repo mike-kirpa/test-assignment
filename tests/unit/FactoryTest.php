@@ -5,7 +5,7 @@ namespace tests;
 use app\components;
 
 /**
- * FactoryTest contains test casess for factory component
+ * FactoryTest contains test cases for factory component
  * 
  * IMPORTANT NOTE:
  * All test cases down below must be implemented

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Base contains test cases for tesing api endpoint 
+ * Base contains test cases for testing api endpoint
  * 
  * @see https://codeception.com/docs/modules/Yii2
  * 
@@ -17,7 +17,7 @@ class BaseCest
      *
      * @return void
      */
-    public function cestExamle(\FunctionalTester $I)
+    public function cestExample(\FunctionalTester $I)
     {
         $I->amOnPage([
             'base/api',
@@ -146,7 +146,7 @@ class BaseCest
      *
      * @return void
      */
-    public function cestUnknowUsers(\FunctionalTester $I)
+    public function cestUnknownUsers(\FunctionalTester $I)
     {
         /**
          * @todo IMPLEMENT THIS
