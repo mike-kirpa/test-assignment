@@ -21,9 +21,10 @@ class GitlabRepoTest extends \Codeception\Test\Unit
      */
     public function testRatingCount()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\GitlabRepo('user', 1, 2);
+        $actual =  $I->getRating();
+        $this->assertEquals(1.5, $actual);
+
     }
 
     /**
@@ -33,9 +34,19 @@ class GitlabRepoTest extends \Codeception\Test\Unit
      */
     public function testData()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\GitlabRepo('user', 1, 2);
+        $actual = $I->getData();
+        if($actual['name'] == 'user'
+            &&$actual['fork-count'] == 1
+            &&$actual['start-count'] == 2
+            &&$actual['rating'] == 1.5) {
+                $result = TRUE;
+            }
+        else {
+            $result = FALSE;
+        }
+
+        $this->assertTrue($result);
     }
 
     /**
@@ -45,8 +56,12 @@ class GitlabRepoTest extends \Codeception\Test\Unit
      */
     public function testStringify()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\GitlabRepo('user', 1, 2);
+        $expected = sprintf(
+            "%-75s %4d ⇅ %4d ★",
+            'user',
+            1,
+            2);
+        $this->assertEquals($expected, $I);
     }
 }

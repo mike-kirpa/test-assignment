@@ -24,9 +24,22 @@ class UserTest extends \Codeception\Test\Unit
      */
     public function testAddingRepos()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $user = new models\User('identifier', 'name', 'github');
+        $githubRepo = new models\GithubRepo('reponame', 1, 2, 3);
+        $user->addRepos([$githubRepo]);
+
+        if($user->getData()['repo'][0]['name'] == 'reponame'
+            &&$user->getData()['repo'][0]['fork-count'] == 1
+            &&$user->getData()['repo'][0]['star-count'] == 2
+            &&$user->getData()['repo'][0]['watcher-count'] == 3
+            &&$user->getData()['repo'][0]['rating'] == 2
+            ){
+                $result = TRUE;
+        }
+        else {
+            $result = FALSE;
+        }
+        $this->assertTrue($result);
     }
 
     /**
@@ -36,9 +49,13 @@ class UserTest extends \Codeception\Test\Unit
      */
     public function testTotalRatingCount()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $user = new models\User('identifier', 'name', 'github');
+        $githubRepo = new models\GithubRepo('reponame1', 1, 2, 3);
+        $gitlabRepo = new models\GitlabRepo('reponame1', 1, 2);
+        $user->addRepos([$githubRepo, $gitlabRepo]);
+        $actual = $user->getTotalRating();
+        $expected = 3.5;
+        $this->assertEquals($expected, $actual);
     }
 
     /**
@@ -48,9 +65,25 @@ class UserTest extends \Codeception\Test\Unit
      */
     public function testData()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $user = new models\User('identifier', 'name', 'github');
+        $actual = $user->getData();
+        $expected = [
+            'name' => 'name',
+            'platform' => 'github',
+            'total-rating' => 0,
+            'repos' => []
+        ];
+        if($actual['name'] == 'name'
+            &&$actual['platform'] == 'github'
+            &&$actual['total-rating'] == 0
+            &&$actual['repos'] == []
+            ){
+                $result = TRUE;
+        }
+        else {
+            $result = FALSE;
+        }
+        $this->assertTrue($result);
     }
 
     /**
@@ -60,8 +93,18 @@ class UserTest extends \Codeception\Test\Unit
      */
     public function testStringify()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\User('identifier', 'name', 'github');
+//        $githubRepo = new models\GithubRepo('reponame1', 1, 2, 3);
+//        $I->addRepos([$githubRepo]);
+
+        $expected = sprintf(
+            "%-75s %19d 🏆\n%'=98s\n",
+            'name (github)',
+            0,
+            ""
+//            'reponame1',
+//            "\n"
+        );
+        $this->assertEquals($expected, $I);
     }
 }

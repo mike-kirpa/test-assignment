@@ -24,8 +24,7 @@ class FactoryTest extends \Codeception\Test\Unit
      */
     public function testCreate()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $actual = \Yii::$app->factory->create('github');
+        $this->assertTrue($actual instanceof components\platforms\Github);
     }
 }

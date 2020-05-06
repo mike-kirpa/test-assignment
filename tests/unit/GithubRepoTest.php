@@ -21,9 +21,9 @@ class GithubRepoTest extends \Codeception\Test\Unit
      */
     public function testRatingCount()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\GithubRepo('user', 1, 2, 3);
+        $actual =  $I->getRating();
+        $this->assertEquals(2, $actual);
     }
 
     /**
@@ -33,9 +33,20 @@ class GithubRepoTest extends \Codeception\Test\Unit
      */
     public function testData()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\GithubRepo('user', 1, 2, 3);
+        $actual = $I->getData();
+        if($actual['name'] == 'user'
+            &&$actual['fork-count'] == 1
+            &&$actual['star-count'] == 2
+            &&$actual['watcher-count'] == 3
+            &&$actual['rating'] == 2) {
+                $result = TRUE;
+            }
+        else {
+            $result = FALSE;
+        }
+
+        $this->assertTrue($result);
     }
 
     /**
@@ -45,8 +56,13 @@ class GithubRepoTest extends \Codeception\Test\Unit
      */
     public function testStringify()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\GithubRepo('user', 1, 2, 3);
+        $expected = sprintf(
+            "%-75s %4d ⇅ %4d ★ %4d 👁️",
+            'user',
+            1,
+            2,
+            3);
+        $this->assertEquals($expected, $I);
     }
 }

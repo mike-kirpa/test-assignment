@@ -24,9 +24,6 @@ class SearcherTest extends \Codeception\Test\Unit
      */
     public function testSearcher()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
-
+        $this->assertTrue(FALSE);
     }
 }

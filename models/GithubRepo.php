@@ -16,14 +16,14 @@ class GithubRepo extends base\Model implements interfaces\IRepo
      *
      * @param string $name
      * @param int $forkCount
-     * @param int $startCount
+     * @param int $starCount
      * @param int $watcherCount
      */
-    public function __construct($name, $forkCount, $startCount, $watcherCount)
+    public function __construct($name, $forkCount, $starCount, $watcherCount)
     {
         $this->name = $name;
         $this->forkCount = $forkCount;
-        $this->startCount = $startCount;
+        $this->starCount = $starCount;
         $this->watcherCount = $watcherCount;
     }
 
@@ -36,7 +36,7 @@ class GithubRepo extends base\Model implements interfaces\IRepo
             "%-75s %4d ⇅ %4d ★ %4d 👁️",
             $this->name,
             $this->forkCount,
-            $this->startCount,
+            $this->starCount,
             $this->watcherCount
         );
     }
@@ -62,7 +62,7 @@ class GithubRepo extends base\Model implements interfaces\IRepo
      */
     public function getStarCount() : int
     {
-        return $this->startCount;
+        return $this->starCount;
     }
 
     /**
@@ -78,7 +78,7 @@ class GithubRepo extends base\Model implements interfaces\IRepo
      */
     public function getRating() : float
     {
-        return (($this->forkCount * 2.0) + ($this->startCount / 2.0) + $this->watcherCount) / 3.0;
+        return (($this->forkCount * 2.0) + ($this->starCount / 2.0) + $this->watcherCount) / 3.0;
     }
 
     /**
@@ -89,7 +89,7 @@ class GithubRepo extends base\Model implements interfaces\IRepo
         return [
             'name' => $this->name,
             'fork-count' => $this->forkCount,
-            'start-count' => $this->startCount,
+            'star-count' => $this->starCount,
             'watcher-count' => $this->watcherCount,
             'rating' => $this->rating,
         ];
@@ -108,7 +108,7 @@ class GithubRepo extends base\Model implements interfaces\IRepo
     /**
      * @var int
      */
-    private $startCount;
+    private $starCount;
 
     /**
      * @var int

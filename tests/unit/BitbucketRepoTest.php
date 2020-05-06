@@ -21,9 +21,9 @@ class BitbucketRepoTest extends \Codeception\Test\Unit
      */
     public function testRatingCount()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\BitbucketRepo('user', 1, 2);
+        $actual =  $I->getRating();
+        $this->assertEquals(2, $actual);
     }
 
     /**
@@ -33,9 +33,19 @@ class BitbucketRepoTest extends \Codeception\Test\Unit
      */
     public function testData()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\BitbucketRepo('user', 1, 2);
+        $actual = $I->getData();
+        if($actual['name'] == 'user'
+            &&$actual['fork-count'] == 1
+            &&$actual['watcher-count'] == 2
+            &&$actual['rating'] == 2) {
+                $result = TRUE;
+            }
+        else {
+            $result = FALSE;
+        }
+
+        $this->assertTrue($result);
     }
 
     /**
@@ -45,8 +55,13 @@ class BitbucketRepoTest extends \Codeception\Test\Unit
      */
     public function testStringify()
     {
-        /**
-         * @todo IMPLEMENT THIS
-         */
+        $I = new models\BitbucketRepo('user', 1, 2);
+        $expected = sprintf(
+            "%-75s %4d ⇅ %6s %4d 👁️",
+            'user',
+            1,
+            "",
+            2);
+        $this->assertEquals($expected, $I);
     }
 }

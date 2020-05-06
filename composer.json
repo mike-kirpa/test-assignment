@@ -23,8 +23,8 @@
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "knplabs/github-api": "^2.10",
-        "php-http/guzzle6-adapter": "^1.1",
-        "m4tthumphrey/php-gitlab-api": "^9.10",
+        "php-http/guzzle6-adapter": "^1.0",
+        "m4tthumphrey/php-gitlab-api": "^9.17",
         "gentle/bitbucket-api": "^1.1.2",
         "ext-json": "*"
     },
